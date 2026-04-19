@@ -17,7 +17,6 @@ bot = commands.Bot(command_prefix='?', description=description, intents=intents,
 with open("jjjayinator.json", "r") as f:
     j = json.loads(f.read())
     token = j["token"]
-    serverID = j["serverID"]
 
 @bot.event
 async def on_ready():
