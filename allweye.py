@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+import json
 
 description = """DRTHDRTGDRTHSGHRRTHHRD"""
 
@@ -13,6 +14,10 @@ activity = discord.Activity(name='You', type=discord.ActivityType.watching)
 
 bot = commands.Bot(command_prefix='?', description=description, intents=intents, activity=activity)
 
+with open("jjjayinator.json", "r") as f:
+    j = json.loads(f.read())
+    token = j["token"]
+    serverID = j["serverID"]
 
 @bot.event
 async def on_ready():
@@ -81,4 +86,4 @@ async def _bot(ctx):
     await ctx.send('Yes, the bot is cool.')
 
 
-bot.run('MTEzMjUwNjM5OTY3OTcyNTYwOQ.GfH9l4.i8T0emkwYny-4AVx1DE2Z6FKOvVS03GmT8jXgA')
+bot.run(token)
